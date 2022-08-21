@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/night.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>Practical Compiler Construction </section>
+				<section>
+					<section>Created By</section>
+					<section>Cripto	</section>
+				</section>
+				
+				<section>
+					<h2>Lexer or scanner</h2>
+					 <p> converts Source code  into tokens</p>
+					<img src="images/pipeline.png" alt="">
+				</section>
+				<section>
+					<h2>A virtual Machine</h2>
+					<pre><code class="c" data-trim data-line-numbers>
+#ifndef clox_vm_h
+#define clox_vm_h
+
+#include "chunk.h"
+
+typedef struct {
+  Chunk* chunk;
+} VM;
+
+void initVM();
+void freeVM();
+
+#endif
+
+					  </code></pre>
+				</section>
+				<section>
+					<h2>Chunks of ByteCode </h2>
+					<p>Chunks implementation logic </p>
+					<div class="r-stack">
+						<img src="/images/insert.png" alt="" class="fragment fade-in-then-out" >
+						<img src="/images/grow.png" alt="" class="fragment fade-in-then-out">
+					</div>
+				</section>
+				<section>Garbage Collector</section>
+				<img src="/images/tricolor-trace.png" alt="">
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
