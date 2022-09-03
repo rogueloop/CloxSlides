@@ -42,12 +42,15 @@
 				<section>
 					<h2>The Lox Language</h2>
 						<section>
-							<p>A High-Level Language</p>
-							<p>Dynamic typing</p>
-							<p>Automatic memory management</p>
-							<p>Closures</p>
-							<p>object oriented</p>
-							<p>Inheritance</p>
+							<ul>
+							<li><p>A High-Level Language</p></li>
+								<li><p>Dynamic typing</p></li>
+									<li><p>Automatic memory management</p></li>
+										<li><p>Closures</p></li>
+											<li><p>object oriented</p></li>
+												<li><p>Inheritance</p>
+													</li>
+												</ul>
 						</section>
 				</section>
 				<section>
@@ -83,16 +86,32 @@ void freeVM();
 				</section>
 				<section>
 					<h2>Chunks of ByteCode </h2>
-					<p>Chunks implementation logic </p>
-					<div class="r-stack">
-						<img src="images/insert.png" alt="" class="fragment fade-in-then-out" >
-						<img src="images/grow.png" alt="" class="fragment fade-in-then-out">
-					</div>
+					<p> </p>
+					<section>
+							<img src="images/insert.png" alt=""  >
+					</section>
+					<section><img src="images/grow.png" alt="">
+					</section>
+					
 				</section>
-				<section><h1></h1>Garbage Collector
-					<img src="images/tricolor-trace.png" alt="">
+				<section><h2>Garbage Collector</h2>
+					<img src="images/tri.png" alt="">
 				</section>
 				
+				<section>
+					<section><h3>Compiling Expressions</h3>
+						<ul>							<li><p>Single-Pass Compilation</p>
+						</li>
+						<!-- <li><p>Parsing Tokens</p></li> -->
+						<p>It parses the user’s source code to understand what it means.Then it takes that knowledge and outputs low-level instructions that produce the same semantics</p>
+						<li><p>A parser produces an AST</p></li>
+						<li><p>then a code generator traverses the AST and outputs target code</p></li>	
+					</ul>
+				</section>
+					<section><h3>Parse with presidence </h3>
+					<img src="/images/connections.png" alt="">
+					</section>
+				</section>
 			</div>
 		</div>
 
