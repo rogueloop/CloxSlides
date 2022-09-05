@@ -66,23 +66,35 @@
 					</section>
 				</section>
 				<section>
-					<h2>A virtual Machine</h2>
-					<pre><code class="c" data-trim data-line-numbers>
-#ifndef clox_vm_h
-#define clox_vm_h
-
-#include "chunk.h"
-
-typedef struct {
-  Chunk* chunk;
-} VM;
-
-void initVM();
-void freeVM();
-
-#endif
-
-					  </code></pre>
+					<section>
+						<h2>A virtual Machine</h2>
+						<pre><code class="c" data-trim data-line-numbers>
+						#ifndef clox_vm_h
+						#define clox_vm_h
+						
+						#include "chunk.h"
+						
+						typedef struct {
+						  Chunk* chunk;
+						} VM;
+						
+						void initVM();
+						void freeVM();
+						
+						#endif
+						  </code></pre>
+					</section>
+					<section>
+						<ul>
+							<li>
+								its an instruction execution Machine
+							</li>
+							<li>
+								run() is the most important function in all of clox. When the interpreter executes a user’s program(90% of its time)
+							</li>
+						</ul>
+						<img src="/images/pipelineVM.png" alt="">
+					</section>
 				</section>
 				<section>
 					<h2>Chunks of ByteCode </h2>
@@ -107,6 +119,7 @@ void freeVM();
 					<section><h3>Parse with presidence </h3>
 					<img src="/images/connections.png" alt="">
 					</section>
+					
 				</section>
 
 				<section>
@@ -121,13 +134,43 @@ void freeVM();
 						</li>
 					</ul>
 					</section>
-					<section><img src="/images/bucket-array.png" alt=""></section>
+					<!-- <section>
+						<img src="/images/bucket-array.png" alt="">
+					</section> -->
+					<section>
+						<ul><li>
+							Separate chaining
+						</li></ul>
+						<img src="/images/chaining.png" alt="">
+						<ul>
+							<li>
+								A <b> hash function </b>takes some larger blob of data and “hashes” it to produce a fixed-size integer hash code whose value depends on all of the bits of the original data.
+							</li>
+						</ul>
+					</section>
 				</section>
 
-				<section><h2>Garbage Collector</h2>
+				<section>
+					<!-- <h2>Garbage Collector</h2> -->
+					<p><b>Mark-Sweep Garbage Collection</b></p>
+					<ul><li>
+						<b>Marking:</b> We start with the roots and traverse or trace through all of the objects those roots refer to. This is a classic graph traversal of all of the reachable objects. Each time we visit an object, we mark it in some way
+					</li>
+					<li><b>Sweeping:</b> Once the mark phase completes, every reachable object in the heap has been marked. That means any unmarked object is unreachable. We go through and free each one</li>
+				</ul>
 					<img src="images/tri.png" alt="">
 				</section>
-				
+				<section>
+					<section>
+						<h3>Local Variables</h3>
+						<ul>
+							<li>Local variables are one of the most-used parts of a language. If locals are slow, everything is slow. So we want a strategy for local variables that’s as efficient as possible</li>
+							<li>
+								we use stack to represent Local Variables 
+							</li>
+						</ul>
+					</section>
+				</section>
 
 			</div>
 		</div>
