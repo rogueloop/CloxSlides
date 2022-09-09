@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jlox</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/night.css">
+        <link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+<body>
+    
+    <div class="reveal">
+        <div class="slides">
+            <section class="pg1">
+                <h2>Practical Compiler Design </h2>
+                              
+                <h4>Implimenting jlox</h4>
+            </section>
+
+            <section class="pg2">
+                <h3>Whoami</h3>
+                <ul>
+                    <li>
+                        Sreedeep CV A.K.A Cripto
+                    </li>
+                    <li>
+                        wannabe reverse engineer
+                    </li>
+                    <li>
+                        Compiler Designer
+                    </li>
+                    <li>student
+
+                    </li>
+                </ul>
+            </section>
+
+            <section class="pg3">
+                <section>
+                    <h2>
+                        Lox basics
+                    </h2>
+                    <pre>
+                        <code class="java" data-trim data-line-numbers>
+                            print “Hello lox” ;
+                            var a = “lox string” ;
+                    
+                            var breakfast = "beignets";
+                            var beverage = "cafe au lait";
+                            breakfast = "beignets with " + beverage;
+                            print breakfast;
+                        </code>
+                    </pre>
+                    <pre><code class="java" data-trim data-line-numbers>
+                        var breakfast = "beignets";
+                        var beverage = "cafe au lait";
+                        breakfast = "beignets with " + beverage;
+                        print breakfast;
+                    </code>
+                    </pre>
+                </section>
+                <section>
+    
+                    <pre><code class="java" data-trim data-line-numbers>
+                        var i = 0;
+                        while(8>i)
+                        {
+                            print "Hello";
+                            i = i+1;
+                        }
+                    </code>
+                </pre>
+
+                 <pre><code class="java" data-trim data-line-numbers>
+                    var sum = 0;
+                    for(var i=0;i<101;i=i+1)
+                    {
+                        sum = sum +i;
+
+                    }
+                    print sum ;
+                </code>
+                </pre>
+                </section>
+                <!-- <pre><code class="c" data-trim data-line-numbers>
+                
+                </code>  
+                </pre> -->
+            </section>
+
+            <section class="pg4">
+                <section>
+                    <h2>GRAMMAR</h2>
+                    <pre><code class="java" data-trim data-line-numbers>
+                        breakfast  → protein "with" breakfast "on the side" ;
+                        breakfast  → protein ;
+                        breakfast  → bread ;
+                    
+                        protein    → crispiness "crispy" "bacon" ;
+                        protein    → "sausage" ;
+                        protein    → cooked "eggs" ;
+                    
+                        crispiness → "really" ;
+                        crispiness → "really" crispiness ;
+                    
+                        cooked     → "scrambled" ;
+                        cooked     → "poached" ;
+                        cooked     → "fried" ;
+                    
+                        bread      → "toast" ;
+                        bread      → "biscuits" ;
+                        bread      → "English muffin" ;
+                    
+                    </code>
+                    </pre>
+                </section>
+                <section>
+                    <pre><code class="java" data-trim data-line-numbers>
+                    expression     → literal
+                                | unary
+                                | binary
+                                | grouping ;
+
+                    literal        → NUMBER | STRING | "true" | "false" | "nil" ;
+                    grouping       → "(" expression ")" ;
+                    unary          → ( "-" | "!" ) expression ;
+                    binary         → expression operator expression ;
+                    operator       → "==" | "!=" | "<" | "<=" | ">" | ">="
+                                | "+"  | "-"  | "*" | "/" ;
+            </code>
+            </pre>
+                </section>
+            </section>
+
+            <section class="parser">
+                <h2>Parser</h2>
+                <p>parser is a literal translation of the grammar rules straight into imperative code. Each rule becomes a function. The body of the rule translates to code</p>
+                <ul>
+                    <li>
+                        Each rule produces a syntax tree and return it to the caller 
+                    </li>
+                    <li>
+                        There are lots of similarity with scanner here we use tokens instead of lexemes
+                    </li>
+                    
+                </ul>
+            </section>
+
+        </div>
+    </div>
+    <script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+</body>
+</html>
